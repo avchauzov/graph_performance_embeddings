@@ -10,6 +10,9 @@ def single_graph_construction(data, n_neighbors=8):
 	G = nx.Graph()
 	G.add_nodes_from(range(len(data)))
 	
+	for row, node in zip(data, G.nodes()):
+		G.nodes[node]['features'] = row
+	
 	for i in range(similarity_matrix.shape[0]):
 		neighbors_index = np.argsort(similarity_matrix[i])[::-1][: n_neighbors]
 		

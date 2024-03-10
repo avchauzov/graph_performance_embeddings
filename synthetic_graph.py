@@ -36,9 +36,9 @@ def convert_networkx_to_pyg(graph, feature_key='features'):
 	return pyg_graph
 
 
-def visualize_graph(G, with_labels=True, node_color='skyblue', node_size=50, edge_color='k'):
+def visualize_graph(g, with_labels=True, node_color='skyblue', node_size=50, edge_color='k'):
 	plt.figure(figsize=(10, 10))
-	nx.draw(G, with_labels=with_labels, node_color=node_color, node_size=node_size, edge_color=edge_color)
+	nx.draw(g, with_labels=with_labels, node_color=node_color, node_size=node_size, edge_color=edge_color)
 	plt.title('Graph without Cycles')
 	plt.show()
 

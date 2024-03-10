@@ -5,8 +5,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 
 def batched_graph_construction(data, n_neighbors=8, min_cluster_size=4, min_samples=4):
-	clustering = HDBSCAN(min_cluster_size=min_cluster_size, min_samples=min_samples).fit(data)
-	labels = clustering.labels_
+	cluster_model = HDBSCAN(min_cluster_size=min_cluster_size, min_samples=min_samples)
+	cluster_model.fit(data)
+	labels = cluster_model.labels_
 	
 	graphs = []
 	for label in np.unique(labels):
